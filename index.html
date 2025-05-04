@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Project Hub </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onkeydown="if (event.key === 'Enter') showProjects();">
+    <div class="container">
+        <div class="logo-container">
+            <img src="https://vignaniit.edu.in/images/09%20copy-1.jpg" alt="VIGNAN logo" class="logo" />
+        </div>
+        <header class="header">
+            <div class="header-bar">
+                <h1 style="color: white;">PROJECT HUB</h1>
+                <div class="header-links">
+                    <a href="#" onclick="openMotiveModal()" class="about-us-link">Motive</a>
+                    <a href="#" onclick="openAboutUsModal()" class="about-us-link">About Us</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_NmafyhPvfDwSQboOnuHkC9CLWKXQd40VLNkkF-NNCj9tYQ/viewform?usp=header" 
+                       target="_blank" 
+                       class="about-us-link">Add Your Projects</a>
+                </div>
+            </div>
+            <div id="motiveText" style="display: none;">
+                <p style="color: white; margin-top: 10px;">Explore innovative projects by students</p>
+            </div>
+        </header>
+
+        <!-- About Us Modal -->
+        <div id="aboutUsModal" class="modal">
+            <div class="modal-content">
+                <h2><strong>About Us</strong></h2>
+                <p>ProjectHub is a platform designed to showcase student projects from Vignan Institute of Information Technology. Our mission is to provide a space where students can share their innovative ideas, technical achievements, and creative solutions with the wider community.</p>
+                <h2><strong>Our Community</strong></h2>
+                <p>This Website was created by the <strong>Advanced Computer Science Engineering (ACSE)</strong> department.</p>
+                <h2><strong>Technologies Used:</strong></h2>
+                <p> <strong>HTML, CSS, JavaScript</strong>, and backend integrated with <strong>Supabase</strong>.</p>
+                <p>For queries and suggestions, contact: <a href="mailto:projecthubqueries@gmail.com">projecthubqueries@gmail.com</a></p>
+                <button class="close-btn" onclick="closeAboutUsModal()">Close</button>
+            </div>
+        </div>
+
+        <!-- Add this modal to your HTML -->
+        <div id="motiveModal" class="modal">
+            <div class="modal-content">
+                <h2>🌟 Our Motive 🌟</h2>
+                <p class="tagline">"Explore innovative projects by students"</p>
+                <button id="motiveCloseBtn" class="close-btn motive-close-btn" onclick="closeMotiveModal()">Close</button>
+            </div>
+        </div>
+
+        <section class="filter-section">
+            <div class="filter-group">
+                <div class="custom-select">
+                    <select id="department" onchange="updateYearOptions()">
+                        <option value="">Select Department</option>
+                        <option value="CSE">Computer Science Engineering</option>
+                        <option value="EEE">Electrical and Electronics Engineering</option>
+                        <option value="ACSE">Advanced Computer Science</option>
+                        <option value="MECH">Mechanical Engineering</option>
+                        <option value="CIVIL">Civil Engineering</option>
+                        <option value="ECE">Electrical and Communication Engineering</option>
+                        <option value="IT">Information Technology</option>
+                        <option value="AIDS">AI & DS </option>
+                    </select>
+                </div>
+                
+                <div class="custom-select">
+                    <select id="year">
+                        <option value="">Select Year</option>
+                    </select>
+                </div>
+                
+                <button class="submit-btn" onclick="showProjects()">Show Projects</button>
+            </div>
+        </section>
+
+        <div id="projectsContainer">
+           
+        </div>
+
+       
+        
+        <button id="reviewBtn" class="review-btn" onclick="openReviewModal()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            Review
+        </button>
+
+        
+        <div id="reviewModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Leave a Review</h2>
+                    <button id="viewReviewsButton" class="view-reviews-btn" onclick="viewReviews()">View Reviews</button>
+                </div>
+                <form id="reviewForm" onsubmit="submitReview(event)">
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" id="userName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Interface Rating</label>
+                        <div class="star-rating" data-rating="5" id="interfaceRating">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Content Rating</label>
+                        <div class="star-rating" data-rating="5" id="contentRating">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Usability Rating</label>
+                        <div class="star-rating" data-rating="5" id="usabilityRating">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Feedback/Suggestion:</label>
+                        <textarea id="feedback" rows="4"></textarea>
+                    </div>
+
+                    <div class="modal-buttons">
+                        <button type="button" onclick="closeReviewModal()" class="cancel-btn">Cancel</button>
+                        <button type="submit" class="submit-btn">Submit Review</button>
+                    </div>
+                </form>
+
+                
+                <div id="reviewsContainer" class="reviews-container" style="display: none;">
+                    <h3>User Reviews</h3>
+                    <div id="reviewsList"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="viewReviewsModal" class="modal">
+            <div class="modal-content">
+                <h2>User Reviews</h2>
+                <div id="viewReviewsList"></div>
+                <button class="close-btn" onclick="closeViewReviewsModal()">Close</button>
+            </div>
+        </div>
+
+        <div class="footer-box">
+            @Copyrighted by Project Hub 2025
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+
+    <!-- AI Assistants Modal -->
+    <div id="projectDetailsModal" class="modal">
+        <div class="project-details-content">
+            <!-- Added image container -->
+            <div class="project-modal-image-container">
+                <img id="projectModalImage" src="" alt="Project Image" class="project-modal-image">
+            </div>
+            <h2 id="projectModalTitle"></h2>
+            <p id="projectModalDescription"></p>
+            <div class="ai-assistants">
+                <h3>AI Assistants & Repository:</h3>
+                <div class="ai-links">
+                    <a href="https://chat.openai.com/" target="_blank" class="ai-link">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT" class="ai-logo">
+                        ChatGPT
+                    </a>
+                    <a href="https://gemini.google.com/" target="_blank" class="ai-link">
+                        <img src="https://seeklogo.com/images/G/google-gemini-logo-A5787B2669-seeklogo.com.png" alt="Gemini" class="ai-logo">
+                        Gemini
+                    </a>
+                    <a href="#" id="projectRepoLink" target="_blank" class="ai-link">
+                        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" class="ai-logo">
+                        GitHub
+                    </a>
+                </div>
+            </div>
+            <button class="close-btn" onclick="closeProjectDetailsModal()">Close</button>
+        </div>
+    </div>
+
+</body>
+</html>
