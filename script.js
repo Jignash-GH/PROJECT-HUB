@@ -14,6 +14,7 @@ const supabase = window.supabase.createClient(
     const yearSelect = document.getElementById('year');
     yearSelect.innerHTML = '<option value="">Select Year</option>';
 
+    
     if (department === 'ACSE') {
         yearSelect.innerHTML += '<option value="2022">2022</option>';
         yearSelect.innerHTML += '<option value="2023">2023</option>';
@@ -28,10 +29,11 @@ const supabase = window.supabase.createClient(
         yearSelect.innerHTML += '<option value="2022">2022</option>';
         yearSelect.innerHTML += '<option value="2023">2023</option>';
         yearSelect.innerHTML += '<option value="2024">2024</option>';
-    } else if (department === 'AIDS') {
-        yearSelect.innerHTML += '<option value="2021">2021</option>';
-        yearSelect.innerHTML += '<option value="2022">2022</option>';
-        yearSelect.innerHTML += '<option value="2023">2023</option>';
+    } else if (department === 'IT') {
+      yearSelect.innerHTML += '<option value="2021">2021</option>';
+      yearSelect.innerHTML += '<option value="2022">2022</option>';
+      yearSelect.innerHTML += '<option value="2023">2023</option>';
+      yearSelect.innerHTML += '<option value="2024">2024</option>';
     } else if (department === 'MECH') {
         yearSelect.innerHTML += '<option value="2021">2021</option>';
         yearSelect.innerHTML += '<option value="2022">2022</option>';
@@ -47,11 +49,10 @@ const supabase = window.supabase.createClient(
         yearSelect.innerHTML += '<option value="2022">2022</option>';
         yearSelect.innerHTML += '<option value="2023">2023</option>';
         yearSelect.innerHTML += '<option value="2024">2024</option>';
-    } else if (department === 'IT') {
-        yearSelect.innerHTML += '<option value="2021">2021</option>';
-        yearSelect.innerHTML += '<option value="2022">2022</option>';
-        yearSelect.innerHTML += '<option value="2023">2023</option>';
-        yearSelect.innerHTML += '<option value="2024">2024</option>';
+    } else if (department === 'AIDS') {
+          yearSelect.innerHTML += '<option value="2021">2021</option>';
+          yearSelect.innerHTML += '<option value="2022">2022</option>';
+          yearSelect.innerHTML += '<option value="2023">2023</option>';
     }
   }
   
