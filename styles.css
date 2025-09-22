@@ -30,7 +30,7 @@ body {
 
 .logo-container {
     margin-top: -20px;
-    width: 100vw;
+    width: 90vw;
     margin-left: calc(-50vw + 50%);
     background: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -43,7 +43,7 @@ body {
 .logo {
     width: 100%;
     height: auto;
-    max-height: 185px;
+    max-height: 170px;
     display: block;
     margin: 0 auto;
     padding: 5px 0;
@@ -883,4 +883,5 @@ body {
     .star {
         font-size: 18px;
     }
+
 }
