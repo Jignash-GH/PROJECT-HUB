@@ -17,6 +17,7 @@ This platform allows users to filter and explore various projects based on depar
 - **HTML5** – Structure and semantics.
 - **CSS3** – Styling and animations.
 - **JavaScript** – Interactivity and dynamic content filtering.
+- **SupaBase (PostegresSQL)** - Database Management
 
 Landing Page (Image Changed due to unavailability)
 <img width="1917" height="952" alt="Screenshot 2025-09-22 215630" src="https://github.com/user-attachments/assets/10dfe660-de39-415c-a013-e461d5da3cae" />
