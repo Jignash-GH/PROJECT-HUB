@@ -8,7 +8,7 @@ The platform enables students, faculty, and visitors to browse innovative projec
 
 ## 🌐 Live Demo
 
-🔗 WILL BE UPDATED
+🔗 https://jignash-gh.github.io/PROJECT-HUB/
 
 ---
 
@@ -112,7 +112,6 @@ Collections include:
 - Authentication
 - Search Projects
 - Project Categories
-- AI-powered Recommendations
 - Analytics Dashboard
 - Bookmark Projects
 
