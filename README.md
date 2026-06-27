@@ -50,6 +50,15 @@ This release introduces major improvements over the previous version.
 - Easier project contribution workflow
 
 ---
+Screenshots (new changes)
+
+<img width="1917" height="970" alt="Screenshot 2026-06-27 171523" src="https://github.com/user-attachments/assets/02436779-2992-4277-bec7-ea75438d9840" />
+<img width="1895" height="956" alt="Screenshot 2026-06-27 171551" src="https://github.com/user-attachments/assets/d8680782-2af4-42eb-b07e-107637953981" />
+<img width="1918" height="911" alt="Screenshot 2026-06-27 171404" src="https://github.com/user-attachments/assets/a7afb545-9de9-41a5-ba60-10565ea3ef93" />
+<img width="1918" height="1023" alt="Screenshot 2026-06-27 171503" src="https://github.com/user-attachments/assets/3fb26af8-58f0-49e7-be82-1b4da099d63b" />
+
+
+---
 
 # 🛠 Tech Stack
 
