@@ -10,15 +10,47 @@ document.addEventListener('keydown', function(event) {
 
 function updateYearOptions() {
 
+    const department = document.getElementById("department").value;
     const yearSelect = document.getElementById("year");
 
+    // Clear previous options
     yearSelect.innerHTML = '<option value="">Select Year</option>';
 
-    const years = [2021, 2022, 2023, 2024, 2025];
+    let years = [];
+
+    switch (department) {
+
+        case "ACSE":
+            years = [2022, 2023, 2024, 2025];
+            break;
+
+        case "AIDS":
+            years = [2022, 2023, 2024, 2025];
+            break;
+
+        case "CSE":
+        case "ECE":
+        case "EEE":
+        case "IT":
+        case "MECH":
+        case "CIVIL":
+            years = [2021, 2022, 2023, 2024, 2025];
+            break;
+
+        default:
+            years = [];
+    }
 
     years.forEach(year => {
-        yearSelect.innerHTML += `<option value="${year}">${year}</option>`;
+
+        yearSelect.innerHTML += `
+            <option value="${year}">
+                ${year}
+            </option>
+        `;
+
     });
+
 }
 
 function openReviewModal() {
