@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Hub — Vignan's IIT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body onkeydown="if (event.key === 'Enter') showProjects();">
+    <!-- Decorative background -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-grid"></div>
+
+    <!-- Top brand strip with new logo -->
+    <div class="brand-strip">
+        <img src="vignan-logo.png" alt="Vignan's Institute of Information Technology" class="brand-logo" />
+    </div>
+
+    <!-- Navigation header -->
+    <header class="navbar">
+        <div class="navbar-inner">
+            <div class="brand">
+                <div class="brand-mark">
+                    <img src="Vignan_logo.png" alt="Vignan Logo">
+                </div>
+                <div class="brand-text">
+                    <span class="brand-title">Project Hub</span>
+                    <span class="brand-sub">Vignan's IIT · ACSE</span>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="#" onclick="openMotiveModal(); return false;">Motive</a>
+                <a href="#" onclick="openAboutUsModal(); return false;">About</a>
+                <a href="#" class="version-badge" onclick="openVersionModal(); return false;">
+                ✨ New Version <span>v2.1</span>
+                </a>
+                <a href="https://tally.so/r/RGg5ZP" target="_blank" class="nav-cta">+ Add Project</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <span class="hero-pill">A showcase by ACSE department</span>
+            <h1 class="hero-title">Where student <span class="grad">ideas</span> become<br/>real, shippable projects.</h1>
+            <p class="hero-sub">Explore curated engineering projects from every department and batch — pick a stream, pick a year, and dive into the work that's powering the next generation of builders at Vignan's IIT.</p>
+        </section>
+
+        <!-- Filter card -->
+        <section class="filter-section">
+            <div class="filter-head">
+                <h2>Browse Projects</h2>
+                <p>Filter by department and academic year</p>
+            </div>
+            <div class="filter-group">
+                <div class="custom-select">
+                    <label>Department</label>
+                    <select id="department" onchange="updateYearOptions()">
+                        <option value="">Select Department</option>
+                        <option value="CSE">Computer Science Engineering</option>
+                        <option value="EEE">Electrical and Electronics Engineering</option>
+                        <option value="ACSE">Advanced Computer Science</option>
+                        <option value="MECH">Mechanical Engineering</option>
+                        <option value="CIVIL">Civil Engineering</option>
+                        <option value="ECE">Electrical and Communication Engineering</option>
+                        <option value="IT">Information Technology</option>
+                        <option value="AIDS">AI & DS</option>
+                    </select>
+                </div>
+                <div class="custom-select">
+                    <label>Year</label>
+                    <select id="year">
+                        <option value="">Select Year</option>
+                    </select>
+                </div>
+                <button class="submit-btn" onclick="showProjects()">
+                    <span>Show Projects</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </section>
+
+        <div id="projectsContainer"></div>
+</main>
+        <footer class="footer-box">
+    <span>© 2026 - Project Hub</span>
+    <span class="dot">·</span>
+    <span>Built by ACSE, Vignan's IIT</span>
+</footer> 
+    
+
+    <!-- Floating review button -->
+    <button id="reviewBtn" class="review-btn" onclick="openReviewModal()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span>Review</span>
+    </button>
+
+    <!-- About Modal -->
+    <div id="aboutUsModal" class="modal">
+        <div class="modal-content">
+            <h2>About Us</h2>
+            <p>Project Hub is a platform designed to showcase student projects from Vignan's Institute of Information Technology. Our mission is to provide a space where students can share their innovative ideas, technical achievements, and creative solutions with the wider community.</p>
+            <h2>Our Community</h2>
+            <p>This website was created by the <strong>Advanced Computer Science Engineering (ACSE)</strong> department.</p>
+            <h2>Technologies Used</h2>
+            <p><strong>HTML, CSS, JavaScript</strong>, with backend integrated via <strong>Firebase</strong>.</p>
+            <h2>Future Plans</h2>
+            <p>We plan to expand the platform with higher functionality and better user experience.</p>
+            <p>For queries and suggestions: <a href="mailto:projecthubqueries@gmail.com">projecthubqueries@gmail.com</a></p>
+            <button class="close-btn" onclick="closeAboutUsModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Motive Modal -->
+    <div id="motiveModal" class="modal">
+        <div class="modal-content">
+            <h2>🌟 Our Motive</h2>
+            <p class="tagline">"Explore innovative projects by students."</p>
+            <p>We believe the best way to learn is to build — and the best way to inspire is to share. Project Hub puts every student project in one place so juniors learn, seniors are recognised, and great ideas don't get lost in folders.</p>
+            <button class="close-btn motive-close-btn" onclick="closeMotiveModal()">Close</button>
+        </div>
+    </div>
+    <!-- Version Modal -->
+    <div id="versionModal" class="modal">
+    <div class="modal-content">
+        <h2>🚀 Project Hub v2.1</h2>
+
+        <h3>✨ What's New</h3>
+
+        <ul class="version-list">
+            <li><strong>Integrated Firebase</strong><br>
+            Replaced Supabase for improved reliability and better compatibility in India.</li>
+
+            <li><strong>Complete UI Redesign</strong><br>
+            Modern, cleaner and more professional interface.</li>
+
+            <li><strong>Performance Improvements</strong><br>
+            Faster loading and efficient retrieval of project data.</li>
+
+            <li><strong>Tally Forms Integration</strong><br>
+            Replaced Google Forms with Tally Forms for a cleaner submission experience.</li>
+        </ul>
+
+        <button class="close-btn" onclick="closeVersionModal()">
+            Close
+        </button>
+    </div>
+</div>
+    <!-- Review Modal -->
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Leave a Review</h2>
+                <button id="viewReviewsButton" class="view-reviews-btn" onclick="viewReviews()">View Reviews</button>
+            </div>
+            <form id="reviewForm" onsubmit="submitReview(event)">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" id="userName" required>
+                </div>
+                <div class="form-group">
+                    <label>Interface Rating</label>
+                    <div class="star-rating" data-rating="5" id="interfaceRating">
+                        <span class="star" data-value="1">★</span><span class="star" data-value="2">★</span><span class="star" data-value="3">★</span><span class="star" data-value="4">★</span><span class="star" data-value="5">★</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Content Rating</label>
+                    <div class="star-rating" data-rating="5" id="contentRating">
+                        <span class="star" data-value="1">★</span><span class="star" data-value="2">★</span><span class="star" data-value="3">★</span><span class="star" data-value="4">★</span><span class="star" data-value="5">★</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Usability Rating</label>
+                    <div class="star-rating" data-rating="5" id="usabilityRating">
+                        <span class="star" data-value="1">★</span><span class="star" data-value="2">★</span><span class="star" data-value="3">★</span><span class="star" data-value="4">★</span><span class="star" data-value="5">★</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Feedback / Suggestion</label>
+                    <textarea id="feedback" rows="4"></textarea>
+                </div>
+                <div class="modal-buttons">
+                    <button type="button" onclick="closeReviewModal()" class="cancel-btn">Cancel</button>
+                    <button type="submit" class="submit-btn">Submit Review</button>
+                </div>
+            </form>
+            <div id="reviewsContainer" class="reviews-container" style="display: none;">
+                <h3>User Reviews</h3>
+                <div id="reviewsList"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="viewReviewsModal" class="modal">
+        <div class="modal-content">
+            <h2>User Reviews</h2>
+            <div id="viewReviewsList"></div>
+            <button class="close-btn" onclick="closeViewReviewsModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Project Details Modal -->
+    <div id="projectDetailsModal" class="modal">
+        <div class="project-details-content">
+            <div class="project-modal-image-container">
+                <img id="projectModalImage" src="" alt="Project Image" class="project-modal-image">
+            </div>
+            <h2 id="projectModalTitle"></h2>
+            <p id="projectModalDescription"></p>
+            <div class="ai-assistants">
+                <h3>AI Assistants & Repository</h3>
+                <div class="ai-links">
+                    <a href="https://chat.openai.com/" target="_blank" class="ai-link">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT" class="ai-logo">
+                        ChatGPT
+                    </a>
+                    <a href="https://gemini.google.com/" target="_blank" class="ai-link">
+                        <img src="https://seeklogo.com/images/G/google-gemini-logo-A5787B2669-seeklogo.com.png" alt="Gemini" class="ai-logo">
+                        Gemini
+                    </a>
+                    <a href="#" id="projectRepoLink" target="_blank" class="ai-link">
+                        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" class="ai-logo">
+                        GitHub
+                    </a>
+                </div>
+            </div>
+            <button class="close-btn" onclick="closeProjectDetailsModal()">Close</button>
+        </div>
+    </div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyA7tIHxICQx7Fo74gycrlAK4Eec1U0srHc",
+  authDomain: "project-hub-da1ad.firebaseapp.com",
+  projectId: "project-hub-da1ad",
+  storageBucket: "project-hub-da1ad.firebasestorage.app",
+  messagingSenderId: "691394585263",
+  appId: "1:691394585263:web:6a7fb37548163b12072a5a",
+  measurementId: "G-J2XQ5ZVQ7V"
+};
+</script>
+
+<script src="app.js"></script>
+</body>
+</html>

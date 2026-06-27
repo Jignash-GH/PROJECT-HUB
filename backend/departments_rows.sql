@@ -1,0 +1,1 @@
+INSERT INTO "public"."departments" ("id", "name") VALUES ('1', 'EEE'), ('2', 'ACSE'), ('3', 'CSE');
