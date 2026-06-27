@@ -8,8 +8,7 @@ The platform enables students, faculty, and visitors to browse innovative projec
 
 ## 🌐 Live Demo
 
-🔗 https://jignash-gh.github.io/PROJECT-HUB/
-
+🔗 https://project-hub-v2.netlify.app/
 ---
 
 ## ✨ Features
